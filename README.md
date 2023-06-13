@@ -1,12 +1,13 @@
 # pathless-game
 
-## install packages
-# npm install
+# install packages
 
-## run project
-# npm run start
+> npm install
 
-## build project
-# npm run build
+# run project
 
+> npm run start
 
+# build project
+
+> npm run build
