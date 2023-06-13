@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+
+    <style type="text/css">
+      #gameWrapper {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border: 1px solid #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="gameWrapper"></div>
+
+    <!-- <script src="dist/bundle.js" type="text/javascript" defer></script> -->
+
+    <script>
+      window.onload = () => {
+        const gameInstance = new PathlessGame({
+          wrapper_element: '#gameWrapper',
+        });
+      };
+    </script>
+  </body>
+</html>
