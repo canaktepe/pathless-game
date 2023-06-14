@@ -1,4 +1,4 @@
-import { SceneOption } from '../model/SceneOption';
+import { SceneOption } from '../model/sceneOption';
 import '../style/game.scss';
 import Player from './player';
 

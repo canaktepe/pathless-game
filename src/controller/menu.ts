@@ -1,5 +1,5 @@
-import PathlessGame from '..';
-import { MenuOption } from '../model/MenuOption';
+import PathlessGame from '../index';
+import { MenuOption } from '../model/menuOption';
 
 class Menu {
   gameObject: PathlessGame;

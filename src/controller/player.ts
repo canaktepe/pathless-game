@@ -1,4 +1,4 @@
-import { PlayerOption } from '../model/PlayerOption';
+import { PlayerOption } from '../model/playerOption';
 
 class Player {
   scene: HTMLElement;
