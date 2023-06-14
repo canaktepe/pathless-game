@@ -19,7 +19,6 @@ class PathlessGame {
       setTimeout(() => {
         console.info('game started!');
         new Scene(this.wrapperElement);
-        console.log(11, this.playerAsset);
         resolve();
       }, 500);
     });

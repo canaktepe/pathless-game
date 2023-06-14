@@ -3,10 +3,10 @@ import { MenuOption } from '../model/menuOption';
 
 class Menu {
   gameObject: PathlessGame;
+  menuElement: HTMLDivElement;
   menuOptions: {
     backgroundColor: string;
   };
-  menuElement: HTMLDivElement;
 
   constructor(gameObject: PathlessGame) {
     this.gameObject = gameObject;

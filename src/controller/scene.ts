@@ -20,7 +20,6 @@ class Scene {
   }
 
   private create(): Promise<void> {
-    console.log('x');
     return new Promise<void>((resolve) => {
       const { backgroundColor } = this.sceneOptions;
 

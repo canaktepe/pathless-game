@@ -24,17 +24,17 @@ class Player {
     const { size, speed } = this.playerOptions;
     const { player, scene } = this;
     const { width } = scene.getBoundingClientRect();
-    const currentPosition = parseInt(player!.style.left, 10);
+    const currentPosition = parseInt(player.style.left, 10);
 
     if (event.key === 'ArrowLeft') {
       const newPosition = currentPosition - speed;
       if (newPosition >= 0) {
-        player!.style.left = `${newPosition}px`;
+        player.style.left = `${newPosition}px`;
       }
     } else if (event.key === 'ArrowRight') {
       const newPosition = currentPosition + speed;
       if (newPosition + size <= width) {
-        player!.style.left = `${newPosition}px`;
+        player.style.left = `${newPosition}px`;
       }
     }
   }
