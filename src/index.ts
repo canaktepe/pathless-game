@@ -3,12 +3,12 @@ import Scene from './controller/scene';
 
 class PathlessGame {
   public playerAsset: string;
-  public wrapper_element: HTMLElement;
+  public wrapperElement: HTMLElement;
   private menu: Menu;
 
-  constructor({ wrapper_element }: { wrapper_element: string }) {
-    this.wrapper_element = document.querySelector(wrapper_element) as HTMLElement;
-    if (!this.wrapper_element) {
+  constructor({ wrapperElement }: { wrapperElement: string }) {
+    this.wrapperElement = document.querySelector(wrapperElement) as HTMLElement;
+    if (!this.wrapperElement) {
       throw new Error('Game wrapper does not exist!');
     }
     this.menu = new Menu(this);
@@ -18,7 +18,7 @@ class PathlessGame {
     return new Promise<void>((resolve) => {
       setTimeout(() => {
         console.info('game started!');
-        new Scene(this.wrapper_element);
+        new Scene(this.wrapperElement);
         console.log(11, this.playerAsset);
         resolve();
       }, 500);

@@ -3,14 +3,14 @@ import '../style/game.scss';
 import Player from './player';
 
 class Scene {
-  private wrapper_element: HTMLElement;
-  private scene_options: SceneOption;
+  private wrapperElement: HTMLElement;
+  private sceneOptions: SceneOption;
   private sceneElement: HTMLDivElement;
   private player: Player;
 
-  constructor(wrapper_element: HTMLElement) {
-    this.wrapper_element = wrapper_element;
-    this.scene_options = new SceneOption({ backgroundColor: '#ffffff' });
+  constructor(wrapperElement: HTMLElement) {
+    this.wrapperElement = wrapperElement;
+    this.sceneOptions = new SceneOption({ backgroundColor: '#ffffff' });
     this.init();
   }
 
@@ -20,8 +20,9 @@ class Scene {
   }
 
   private create(): Promise<void> {
+    console.log('x');
     return new Promise<void>((resolve) => {
-      const { backgroundColor } = this.scene_options;
+      const { backgroundColor } = this.sceneOptions;
 
       const scene = document.createElement('div');
       scene.className = 'scene';
@@ -29,7 +30,7 @@ class Scene {
         background-color: ${backgroundColor};
       `;
 
-      this.wrapper_element.appendChild(scene);
+      this.wrapperElement.appendChild(scene);
       this.sceneElement = scene;
 
       this.createRoad();

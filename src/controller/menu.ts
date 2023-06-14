@@ -1,22 +1,22 @@
-import PathlessGame from "..";
-import { MenuOption } from "../model/MenuOption";
+import PathlessGame from '..';
+import { MenuOption } from '../model/MenuOption';
 
 class Menu {
   gameObject: PathlessGame;
-  menu_options: {
-    backgroundColor: string,
+  menuOptions: {
+    backgroundColor: string;
   };
   menuElement: HTMLDivElement;
 
   constructor(gameObject: PathlessGame) {
     this.gameObject = gameObject;
-    this.menu_options = new MenuOption({ backgroundColor:'grey'});
+    this.menuOptions = new MenuOption({ backgroundColor: 'grey' });
     this.createMenuScreen();
   }
 
   createMenuScreen(): void {
-    const {  wrapper_element } = this.gameObject;
-    const { backgroundColor } = this.menu_options;
+    const { wrapperElement: wrapperElement } = this.gameObject;
+    const { backgroundColor } = this.menuOptions;
 
     const menu = document.createElement('div');
     menu.className = 'menu';
@@ -33,7 +33,7 @@ class Menu {
     });
 
     menu.appendChild(startButton);
-    wrapper_element.appendChild(menu);
+    wrapperElement.appendChild(menu);
     this.menuElement = menu;
 
     this.createPlayerSelectionBox();
@@ -44,7 +44,7 @@ class Menu {
     list.className = 'menu__player-box';
 
     const playerObject = document.createElement('div');
-    playerObject.className = 'player-item'
+    playerObject.className = 'player-item';
     playerObject.style.cssText = `
         background-image: url(${require('../assets/car.png')});
       `;
@@ -59,10 +59,10 @@ class Menu {
   }
 
   close(): void {
-    const { wrapper_element } = this.gameObject;
+    const { wrapperElement } = this.gameObject;
     const { menuElement } = this;
-    if (menuElement?.parentNode === wrapper_element) {
-      wrapper_element.removeChild(menuElement);
+    if (menuElement?.parentNode === wrapperElement) {
+      wrapperElement.removeChild(menuElement);
     }
   }
 }

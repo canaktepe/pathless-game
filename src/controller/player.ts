@@ -3,11 +3,11 @@ import { PlayerOption } from '../model/PlayerOption';
 class Player {
   scene: HTMLElement;
   player: HTMLDivElement;
-  player_options: PlayerOption;
+  playerOptions: PlayerOption;
 
   constructor(scene: HTMLElement) {
     this.scene = scene;
-    this.player_options = new PlayerOption({ size: 100, speed: 10 });
+    this.playerOptions = new PlayerOption({ size: 100, speed: 10 });
     this.init();
   }
 
@@ -21,10 +21,10 @@ class Player {
   }
 
   handleKeyDown(event: KeyboardEvent): void {
-    const { size, speed } = this.player_options;
+    const { size, speed } = this.playerOptions;
     const { player, scene } = this;
     const { width } = scene.getBoundingClientRect();
-    const currentPosition = parseInt(player!.style.left);
+    const currentPosition = parseInt(player!.style.left, 10);
 
     if (event.key === 'ArrowLeft') {
       const newPosition = currentPosition - speed;
@@ -42,8 +42,8 @@ class Player {
   async create(): Promise<void> {
     const { scene } = this;
     const { width, height } = scene.getBoundingClientRect();
-    const { size } = this.player_options;
-    const player_bottom_space = 20;
+    const { size } = this.playerOptions;
+    const playerBottomSpace = 20;
 
     const player = document.createElement('div');
     player.className = 'player';
@@ -52,8 +52,7 @@ class Player {
         width: ${size}px;
         height: ${size}px;
         left: ${(width - size) / 2}px;
-        top: ${height - size - player_bottom_space}px;
-        
+        top: ${height - size - playerBottomSpace}px;
     `;
     scene.appendChild(player);
     this.player = player;
