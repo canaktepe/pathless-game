@@ -1,27 +1,26 @@
+import PathlessGame from "..";
+import { MenuOption } from "../model/MenuOption";
+
 class Menu {
-  gameObject: any;
+  gameObject: PathlessGame;
   menu_options: {
     backgroundColor: string,
   };
-  menuElement: HTMLDivElement | null;
+  menuElement: HTMLDivElement;
 
-  constructor(gameObject: any) {
+  constructor(gameObject: PathlessGame) {
     this.gameObject = gameObject;
-    this.menu_options = {
-      backgroundColor: 'grey',
-    };
-    this.menuElement = null;
+    this.menu_options = new MenuOption({ backgroundColor:'grey'});
     this.createMenuScreen();
   }
 
   createMenuScreen(): void {
-    const { wrapper_size, wrapper_element } = this.gameObject;
+    const {  wrapper_element } = this.gameObject;
     const { backgroundColor } = this.menu_options;
 
     const menu = document.createElement('div');
+    menu.className = 'menu';
     menu.style.cssText = `
-      width: ${wrapper_size.width}px;
-      height: ${wrapper_size.height}px;
       background-color: ${backgroundColor};
     `;
 
@@ -42,22 +41,12 @@ class Menu {
 
   createPlayerSelectionBox(): void {
     const list = document.createElement('div');
-    list.style.cssText = `
-            display: flex;
-            justify-content: center;
-            gap: 1em;
-        `;
+    list.className = 'menu__player-box';
 
     const playerObject = document.createElement('div');
+    playerObject.className = 'player-item'
     playerObject.style.cssText = `
-        width: 100px;
-        height: 100px;
-        background-size: contain;
         background-image: url(${require('../assets/car.png')});
-        border: 5px solid #fff;
-        background-size: 80%;
-        background-repeat: no-repeat;
-        background-position: center;
       `;
 
     playerObject.addEventListener('click', () => {

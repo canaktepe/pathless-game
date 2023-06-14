@@ -1,0 +1,54 @@
+@keyframes slideAnimation {
+  0% {
+    background-position: 0px 0px;
+  }
+  100% {
+    background-position: 0px 650px;
+  }
+}
+
+.menu {
+  width: 100%;
+  height: 100%;
+
+  &__player-box {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+
+    .player-item {
+      width: 100px;
+      height: 100px;
+      background-size: contain;
+      border: 5px solid #fff;
+      background-size: 80%;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}
+
+.scene {
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+
+  &__road {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image: url('../assets/road.png');
+    background-size: 100% 650px;
+    background-repeat: repeat-y;
+    animation: slideAnimation 5s linear infinite;
+  }
+}
+
+.player {
+  position: absolute;
+  transition: left 0.3s ease-out;
+  border-radius: 50%;
+  z-index: 999;
+  background-size: contain;
+  background-repeat: no-repeat;
+}

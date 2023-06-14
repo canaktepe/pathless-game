@@ -1,18 +1,13 @@
+import { PlayerOption } from '../model/PlayerOption';
+
 class Player {
   scene: HTMLElement;
-  player_options: {
-    size: number;
-    speed: number;
-  };
-  player: HTMLDivElement | null;
+  player: HTMLDivElement;
+  player_options: PlayerOption;
 
   constructor(scene: HTMLElement) {
     this.scene = scene;
-    this.player_options = {
-      size: 100,
-      speed: 10,
-    };
-    this.player = null;
+    this.player_options = new PlayerOption({ size: 100, speed: 10 });
     this.init();
   }
 
@@ -46,28 +41,20 @@ class Player {
 
   async create(): Promise<void> {
     const { scene } = this;
-    const {
-      width,
-      height,
-      
-    } = scene.getBoundingClientRect() ;
+    const { width, height } = scene.getBoundingClientRect();
     const { size } = this.player_options;
-    const player_bottom_space = 20
+    const player_bottom_space = 20;
 
     const player = document.createElement('div');
+    player.className = 'player';
     player.style.cssText = `
+        background-image: url(${require('../assets/car.png')});
         width: ${size}px;
         height: ${size}px;
-        position: absolute;
         left: ${(width - size) / 2}px;
         top: ${height - size - player_bottom_space}px;
-        transition: left 0.3s ease-out;
-        border-radius: 50%;
-        z-index: 999;
-        background-image: url(${require('../assets/car.png')});
-        background-size: contain;
+        
     `;
-
     scene.appendChild(player);
     this.player = player;
   }
