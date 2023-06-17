@@ -4,9 +4,7 @@ import { MenuOption } from '../model/menuOption';
 class Menu {
   gameObject: PathlessGame;
   menuElement: HTMLDivElement;
-  menuOptions: {
-    backgroundColor: string;
-  };
+  menuOptions: MenuOption;
 
   constructor(gameObject: PathlessGame) {
     this.gameObject = gameObject;

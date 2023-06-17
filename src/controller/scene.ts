@@ -1,5 +1,6 @@
 import { SceneOption } from '../model/sceneOption';
 import '../style/game.scss';
+import Stone from './obstacle/stone';
 import Player from './player';
 
 class Scene {
@@ -17,6 +18,10 @@ class Scene {
   private async init(): Promise<void> {
     await this.create();
     await this.createPlayer();
+
+    const stone = new Stone(this.sceneElement);
+    stone.create();
+    this.sceneElement.appendChild(stone.obstacleElement);
   }
 
   private create(): Promise<void> {

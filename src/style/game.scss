@@ -32,6 +32,7 @@
   height: 100%;
   box-sizing: border-box;
   position: relative;
+  overflow: hidden;
 
   &__road {
     width: 100%;
@@ -41,6 +42,11 @@
     background-size: 100% 650px;
     background-repeat: repeat-y;
     animation: slideAnimation 5s linear infinite;
+  }
+
+  .obstacle {
+    position: absolute;
+    background-color: red;
   }
 }
 
