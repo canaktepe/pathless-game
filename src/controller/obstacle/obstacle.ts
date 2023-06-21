@@ -13,7 +13,7 @@ class Obstacle {
 
     const duration = 5000;
     const distance =
-      this.sceneElement.clientHeight + this.obstacleElement.clientHeight; // Engelin yüksekliği kadar daha fazla mesafe
+      this.sceneElement.clientHeight + this.obstacleElement.clientHeight;
     const startTime = Date.now();
     let destroyed = false;
 
@@ -23,7 +23,7 @@ class Obstacle {
       const elapsed = Date.now() - startTime;
       const progress = Math.min(elapsed / duration, 1);
       const translateY =
-        progress * distance - this.obstacleElement.clientHeight; // Engelin yüksekliği kadar geri çekme
+        progress * distance - this.obstacleElement.clientHeight;
 
       this.obstacleElement.style.transform = `translateY(${translateY}px)`;
 
@@ -62,7 +62,7 @@ class Obstacle {
 
     const maxWidth = this.sceneElement.clientWidth - parseInt(width);
     const left = Math.floor(Math.random() * maxWidth) + 'px';
-    const top = -this.obstacleElement.clientHeight + 'px'; // Engelin yüksekliği kadar yukarıdan başlama
+    const top = -this.obstacleElement.clientHeight + 'px';
     this.obstacleElement.style.left = left;
     this.obstacleElement.style.top = top;
   }
